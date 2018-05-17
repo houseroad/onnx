@@ -237,8 +237,8 @@ expect(node, inputs=[x], outputs=[y],
 
   Performs element-wise binary addition (with limited broadcast support).
   
-  This operator supports bidirectional Numpy-style broadcasting; for more details
-  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md)
+  This operator supports **bidirectional Numpy-style broadcasting**; for more details
+  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
 
 #### Version
 
@@ -316,30 +316,22 @@ expect(node, inputs=[x, y], outputs=[x + y],
   Returns the tensor resulted from performing the `and` logical operation
   elementwise on the input tensors `A` and `B`.
   
-  If broadcasting is enabled, the right-hand-side argument will be broadcasted
-  to match the shape of left-hand-side argument. See the doc of `Add` for a
-  detailed description of the broadcasting rules.
+  This operator supports **bidirectional Numpy-style broadcasting**; for more details
+  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
 
 #### Version
 
-This version of the operator has been available since version 1 of the default ONNX operator set.
+This version of the operator has been available since version 7 of the default ONNX operator set.
 
-#### Attributes
-
-<dl>
-<dt><tt>axis</tt> : int</dt>
-<dd>If set, defines the broadcast dimensions.</dd>
-<dt><tt>broadcast</tt> : int</dt>
-<dd>Enable broadcasting</dd>
-</dl>
+Other versions of this operator: <a href="Changelog.md#And-1">And-1</a>
 
 #### Inputs
 
 <dl>
 <dt><tt>A</tt> : T</dt>
-<dd>Left input tensor for the logical operator.</dd>
+<dd>First input operand for the logical operator.</dd>
 <dt><tt>B</tt> : T</dt>
-<dd>Right input tensor for the logical operator.</dd>
+<dd>Second input operand for the logical operator.</dd>
 </dl>
 
 #### Outputs
@@ -1907,8 +1899,8 @@ expect(node, inputs=[x], outputs=[y],
 
   Performs element-wise binary division (with limited broadcast support).
   
-  This operator supports bidirectional Numpy-style broadcasting; for more details
-  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md)
+  This operator supports **bidirectional Numpy-style broadcasting**; for more details
+  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
 
 #### Version
 
@@ -2130,30 +2122,22 @@ expect(node, inputs=[x], outputs=[y],
   Returns the tensor resulted from performing the `equal` logical operation
   elementwise on the input tensors `A` and `B`.
   
-  If broadcasting is enabled, the right-hand-side argument will be broadcasted
-  to match the shape of left-hand-side argument. See the doc of `Add` for a
-  detailed description of the broadcasting rules.
+  This operator supports **bidirectional Numpy-style broadcasting**; for more details
+  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
 
 #### Version
 
-This version of the operator has been available since version 1 of the default ONNX operator set.
+This version of the operator has been available since version 7 of the default ONNX operator set.
 
-#### Attributes
-
-<dl>
-<dt><tt>axis</tt> : int</dt>
-<dd>If set, defines the broadcast dimensions.</dd>
-<dt><tt>broadcast</tt> : int</dt>
-<dd>Enable broadcasting</dd>
-</dl>
+Other versions of this operator: <a href="Changelog.md#Equal-1">Equal-1</a>
 
 #### Inputs
 
 <dl>
 <dt><tt>A</tt> : T</dt>
-<dd>Left input tensor for the logical operator.</dd>
+<dd>First input operand for the logical operator.</dd>
 <dt><tt>B</tt> : T</dt>
-<dd>Right input tensor for the logical operator.</dd>
+<dd>Second input operand for the logical operator.</dd>
 </dl>
 
 #### Outputs
@@ -3056,30 +3040,22 @@ expect(node, inputs=[x], outputs=[y], name='test_globalmaxpool_precomputed')
   Returns the tensor resulted from performing the `greater` logical operation
   elementwise on the input tensors `A` and `B`.
   
-  If broadcasting is enabled, the right-hand-side argument will be broadcasted
-  to match the shape of left-hand-side argument. See the doc of `Add` for a
-  detailed description of the broadcasting rules.
+  This operator supports **bidirectional Numpy-style broadcasting**; for more details
+  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
 
 #### Version
 
-This version of the operator has been available since version 1 of the default ONNX operator set.
+This version of the operator has been available since version 7 of the default ONNX operator set.
 
-#### Attributes
-
-<dl>
-<dt><tt>axis</tt> : int</dt>
-<dd>If set, defines the broadcast dimensions.</dd>
-<dt><tt>broadcast</tt> : int</dt>
-<dd>Enable broadcasting</dd>
-</dl>
+Other versions of this operator: <a href="Changelog.md#Greater-1">Greater-1</a>
 
 #### Inputs
 
 <dl>
 <dt><tt>A</tt> : T</dt>
-<dd>Left input tensor for the logical operator.</dd>
+<dd>First input operand for the logical operator.</dd>
 <dt><tt>B</tt> : T</dt>
-<dd>Right input tensor for the logical operator.</dd>
+<dd>Second input operand for the logical operator.</dd>
 </dl>
 
 #### Outputs
@@ -3864,30 +3840,22 @@ expect(node, inputs=[x], outputs=[y],
   Returns the tensor resulted from performing the `less` logical operation
   elementwise on the input tensors `A` and `B`.
   
-  If broadcasting is enabled, the right-hand-side argument will be broadcasted
-  to match the shape of left-hand-side argument. See the doc of `Add` for a
-  detailed description of the broadcasting rules.
+  This operator supports **bidirectional Numpy-style broadcasting**; for more details
+  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
 
 #### Version
 
-This version of the operator has been available since version 1 of the default ONNX operator set.
+This version of the operator has been available since version 7 of the default ONNX operator set.
 
-#### Attributes
-
-<dl>
-<dt><tt>axis</tt> : int</dt>
-<dd>If set, defines the broadcast dimensions.</dd>
-<dt><tt>broadcast</tt> : int</dt>
-<dd>Enable broadcasting</dd>
-</dl>
+Other versions of this operator: <a href="Changelog.md#Less-1">Less-1</a>
 
 #### Inputs
 
 <dl>
 <dt><tt>A</tt> : T</dt>
-<dd>Left input tensor for the logical operator.</dd>
+<dd>First input operand for the logical operator.</dd>
 <dt><tt>B</tt> : T</dt>
-<dd>Right input tensor for the logical operator.</dd>
+<dd>Second input operand for the logical operator.</dd>
 </dl>
 
 #### Outputs
@@ -4957,8 +4925,8 @@ expect(node, inputs=[data_0, data_1], outputs=[result],
 
   Performs element-wise binary multiplication (with limited broadcast support).
   
-  This operator supports bidirectional Numpy-style broadcasting; for more details
-  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md)
+  This operator supports **bidirectional Numpy-style broadcasting**; for more details
+  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
 
 #### Version
 
@@ -5209,30 +5177,22 @@ expect(node, inputs=[x], outputs=[np.logical_not(x)],
   Returns the tensor resulted from performing the `or` logical operation
   elementwise on the input tensors `A` and `B`.
   
-  If broadcasting is enabled, the right-hand-side argument will be broadcasted
-  to match the shape of left-hand-side argument. See the doc of `Add` for a
-  detailed description of the broadcasting rules.
+  This operator supports **bidirectional Numpy-style broadcasting**; for more details
+  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
 
 #### Version
 
-This version of the operator has been available since version 1 of the default ONNX operator set.
+This version of the operator has been available since version 7 of the default ONNX operator set.
 
-#### Attributes
-
-<dl>
-<dt><tt>axis</tt> : int</dt>
-<dd>If set, defines the broadcast dimensions.</dd>
-<dt><tt>broadcast</tt> : int</dt>
-<dd>Enable broadcasting</dd>
-</dl>
+Other versions of this operator: <a href="Changelog.md#Or-1">Or-1</a>
 
 #### Inputs
 
 <dl>
 <dt><tt>A</tt> : T</dt>
-<dd>Left input tensor for the logical operator.</dd>
+<dd>First input operand for the logical operator.</dd>
 <dt><tt>B</tt> : T</dt>
-<dd>Right input tensor for the logical operator.</dd>
+<dd>Second input operand for the logical operator.</dd>
 </dl>
 
 #### Outputs
@@ -5397,9 +5357,9 @@ expect(node, inputs=[x, y], outputs=[z],
   output data (Tensor<T>) where the function `f(x) = slope * x for x < 0`,
   `f(x) = x for x >= 0`., is applied to the data tensor elementwise.
   
-  This operator supports unidirectional broadcasting (expand slope tensor to
-  the first input's shape; for more details please check
-  [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md)
+  This operator supports **unidirectional Numpy-style broadcasting**
+  (expand slope tensor to the first input's shape; for more details please check
+  [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
   
 
 #### Version
@@ -5551,8 +5511,8 @@ for mode in ['edge', 'reflect']:
   produces one output data (Tensor<T>) where the function `f(x) = x^exponent`,
   is applied to the data tensor elementwise.
   
-  This operator supports bidirectional Numpy-style broadcasting; for more details
-  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md)
+  This operator supports **bidirectional Numpy-style broadcasting**; for more details
+  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
 
 #### Version
 
@@ -7786,8 +7746,8 @@ expect(node, inputs=[x], outputs=[y],
 
   Performs element-wise binary subtraction (with limited broadcast support).
   
-  This operator supports bidirectional Numpy-style broadcasting; for more details
-  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md)
+  This operator supports **bidirectional Numpy-style broadcasting**; for more details
+  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
 
 #### Version
 
@@ -8464,30 +8424,22 @@ expect(node, inputs=[data], outputs=[output],
   Returns the tensor resulted from performing the `xor` logical operation
   elementwise on the input tensors `A` and `B`.
   
-  If broadcasting is enabled, the right-hand-side argument will be broadcasted
-  to match the shape of left-hand-side argument. See the doc of `Add` for a
-  detailed description of the broadcasting rules.
+  This operator supports **bidirectional Numpy-style broadcasting**; for more details
+  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
 
 #### Version
 
-This version of the operator has been available since version 1 of the default ONNX operator set.
+This version of the operator has been available since version 7 of the default ONNX operator set.
 
-#### Attributes
-
-<dl>
-<dt><tt>axis</tt> : int</dt>
-<dd>If set, defines the broadcast dimensions.</dd>
-<dt><tt>broadcast</tt> : int</dt>
-<dd>Enable broadcasting</dd>
-</dl>
+Other versions of this operator: <a href="Changelog.md#Xor-1">Xor-1</a>
 
 #### Inputs
 
 <dl>
 <dt><tt>A</tt> : T</dt>
-<dd>Left input tensor for the logical operator.</dd>
+<dd>First input operand for the logical operator.</dd>
 <dt><tt>B</tt> : T</dt>
-<dd>Right input tensor for the logical operator.</dd>
+<dd>Second input operand for the logical operator.</dd>
 </dl>
 
 #### Outputs

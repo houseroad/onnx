@@ -3186,8 +3186,8 @@ This version of the operator has been available since version 1 of the default O
   produces one output data (Tensor<T>) where the function `f(x) = x^exponent`,
   is applied to the data tensor elementwise.
   
-  This operator supports bidirectional Numpy-style broadcasting; for more details
-  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md)
+  This operator supports **bidirectional Numpy-style broadcasting**; for more details
+  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
 
 #### Version
 
@@ -6287,9 +6287,9 @@ This version of the operator has been available since version 6 of the default O
   output data (Tensor<T>) where the function `f(x) = slope * x for x < 0`,
   `f(x) = x for x >= 0`., is applied to the data tensor elementwise.
   
-  This operator supports unidirectional broadcasting (expand slope tensor to
-  the first input's shape; for more details please check
-  [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md)
+  This operator supports **unidirectional Numpy-style broadcasting**
+  (expand slope tensor to the first input's shape; for more details please check
+  [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
   
 
 #### Version
@@ -6636,8 +6636,8 @@ This version of the operator has been available since version 7 of the default O
 
   Performs element-wise binary addition (with limited broadcast support).
   
-  This operator supports bidirectional Numpy-style broadcasting; for more details
-  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md)
+  This operator supports **bidirectional Numpy-style broadcasting**; for more details
+  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
 
 #### Version
 
@@ -6664,6 +6664,43 @@ This version of the operator has been available since version 7 of the default O
 <dl>
 <dt><tt>T</tt> : tensor(uint32), tensor(uint64), tensor(int32), tensor(int64), tensor(float), tensor(double)</dt>
 <dd>Constrain input and output types to high-precision numeric tensors.</dd>
+</dl>
+
+### <a name="And-7"></a>**And-7**</a>
+
+  Returns the tensor resulted from performing the `and` logical operation
+  elementwise on the input tensors `A` and `B`.
+  
+  This operator supports **bidirectional Numpy-style broadcasting**; for more details
+  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
+
+#### Version
+
+This version of the operator has been available since version 7 of the default ONNX operator set.
+
+#### Inputs
+
+<dl>
+<dt><tt>A</tt> : T</dt>
+<dd>First input operand for the logical operator.</dd>
+<dt><tt>B</tt> : T</dt>
+<dd>Second input operand for the logical operator.</dd>
+</dl>
+
+#### Outputs
+
+<dl>
+<dt><tt>C</tt> : T1</dt>
+<dd>Result tensor.</dd>
+</dl>
+
+#### Type Constraints
+
+<dl>
+<dt><tt>T</tt> : tensor(bool)</dt>
+<dd>Constrains input to boolean tensor.</dd>
+<dt><tt>T1</tt> : tensor(bool)</dt>
+<dd>Constrains output to boolean tensor.</dd>
 </dl>
 
 ### <a name="Asin-7"></a>**Asin-7**</a>
@@ -6822,8 +6859,8 @@ This version of the operator has been available since version 7 of the default O
 
   Performs element-wise binary division (with limited broadcast support).
   
-  This operator supports bidirectional Numpy-style broadcasting; for more details
-  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md)
+  This operator supports **bidirectional Numpy-style broadcasting**; for more details
+  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
 
 #### Version
 
@@ -6852,12 +6889,123 @@ This version of the operator has been available since version 7 of the default O
 <dd>Constrain input and output types to high-precision numeric tensors.</dd>
 </dl>
 
+### <a name="Equal-7"></a>**Equal-7**</a>
+
+  Returns the tensor resulted from performing the `equal` logical operation
+  elementwise on the input tensors `A` and `B`.
+  
+  This operator supports **bidirectional Numpy-style broadcasting**; for more details
+  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
+
+#### Version
+
+This version of the operator has been available since version 7 of the default ONNX operator set.
+
+#### Inputs
+
+<dl>
+<dt><tt>A</tt> : T</dt>
+<dd>First input operand for the logical operator.</dd>
+<dt><tt>B</tt> : T</dt>
+<dd>Second input operand for the logical operator.</dd>
+</dl>
+
+#### Outputs
+
+<dl>
+<dt><tt>C</tt> : T1</dt>
+<dd>Result tensor.</dd>
+</dl>
+
+#### Type Constraints
+
+<dl>
+<dt><tt>T</tt> : tensor(bool), tensor(int32), tensor(int64)</dt>
+<dd>Constrains input to integral tensors.</dd>
+<dt><tt>T1</tt> : tensor(bool)</dt>
+<dd>Constrains output to boolean tensor.</dd>
+</dl>
+
+### <a name="Greater-7"></a>**Greater-7**</a>
+
+  Returns the tensor resulted from performing the `greater` logical operation
+  elementwise on the input tensors `A` and `B`.
+  
+  This operator supports **bidirectional Numpy-style broadcasting**; for more details
+  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
+
+#### Version
+
+This version of the operator has been available since version 7 of the default ONNX operator set.
+
+#### Inputs
+
+<dl>
+<dt><tt>A</tt> : T</dt>
+<dd>First input operand for the logical operator.</dd>
+<dt><tt>B</tt> : T</dt>
+<dd>Second input operand for the logical operator.</dd>
+</dl>
+
+#### Outputs
+
+<dl>
+<dt><tt>C</tt> : T1</dt>
+<dd>Result tensor.</dd>
+</dl>
+
+#### Type Constraints
+
+<dl>
+<dt><tt>T</tt> : tensor(float16), tensor(float), tensor(double)</dt>
+<dd>Constrains input to float tensors.</dd>
+<dt><tt>T1</tt> : tensor(bool)</dt>
+<dd>Constrains output to boolean tensor.</dd>
+</dl>
+
+### <a name="Less-7"></a>**Less-7**</a>
+
+  Returns the tensor resulted from performing the `less` logical operation
+  elementwise on the input tensors `A` and `B`.
+  
+  This operator supports **bidirectional Numpy-style broadcasting**; for more details
+  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
+
+#### Version
+
+This version of the operator has been available since version 7 of the default ONNX operator set.
+
+#### Inputs
+
+<dl>
+<dt><tt>A</tt> : T</dt>
+<dd>First input operand for the logical operator.</dd>
+<dt><tt>B</tt> : T</dt>
+<dd>Second input operand for the logical operator.</dd>
+</dl>
+
+#### Outputs
+
+<dl>
+<dt><tt>C</tt> : T1</dt>
+<dd>Result tensor.</dd>
+</dl>
+
+#### Type Constraints
+
+<dl>
+<dt><tt>T</tt> : tensor(float16), tensor(float), tensor(double)</dt>
+<dd>Constrains input to float tensors.</dd>
+<dt><tt>T1</tt> : tensor(bool)</dt>
+<dd>Constrains output to boolean tensor.</dd>
+</dl>
+
 ### <a name="Mul-7"></a>**Mul-7**</a>
 
   Performs element-wise binary multiplication (with limited broadcast support).
   
-  This operator supports bidirectional Numpy-style broadcasting; for more details
-  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md)
+  This operator supports **bidirectional Numpy-style broadcasting**; for more details
+  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
 
 #### Version
 
@@ -6929,6 +7077,43 @@ This version of the operator has been available since version 7 of the default O
 <dd>Constrain output types to integral tensors.</dd>
 </dl>
 
+### <a name="Or-7"></a>**Or-7**</a>
+
+  Returns the tensor resulted from performing the `or` logical operation
+  elementwise on the input tensors `A` and `B`.
+  
+  This operator supports **bidirectional Numpy-style broadcasting**; for more details
+  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
+
+#### Version
+
+This version of the operator has been available since version 7 of the default ONNX operator set.
+
+#### Inputs
+
+<dl>
+<dt><tt>A</tt> : T</dt>
+<dd>First input operand for the logical operator.</dd>
+<dt><tt>B</tt> : T</dt>
+<dd>Second input operand for the logical operator.</dd>
+</dl>
+
+#### Outputs
+
+<dl>
+<dt><tt>C</tt> : T1</dt>
+<dd>Result tensor.</dd>
+</dl>
+
+#### Type Constraints
+
+<dl>
+<dt><tt>T</tt> : tensor(bool)</dt>
+<dd>Constrains input to boolean tensor.</dd>
+<dt><tt>T1</tt> : tensor(bool)</dt>
+<dd>Constrains output to boolean tensor.</dd>
+</dl>
+
 ### <a name="Sin-7"></a>**Sin-7**</a>
 
   Calculates the sine of the given input tensor, element-wise.
@@ -6962,8 +7147,8 @@ This version of the operator has been available since version 7 of the default O
 
   Performs element-wise binary subtraction (with limited broadcast support).
   
-  This operator supports bidirectional Numpy-style broadcasting; for more details
-  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md)
+  This operator supports **bidirectional Numpy-style broadcasting**; for more details
+  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
 
 #### Version
 
@@ -7059,5 +7244,42 @@ This version of the operator has been available since version 7 of the default O
 <dl>
 <dt><tt>T</tt> : tensor(uint8), tensor(uint16), tensor(uint32), tensor(uint64), tensor(int8), tensor(int16), tensor(int32), tensor(int64), tensor(float16), tensor(float), tensor(double), tensor(string), tensor(bool)</dt>
 <dd>Constrain input/output types to all tensor types.</dd>
+</dl>
+
+### <a name="Xor-7"></a>**Xor-7**</a>
+
+  Returns the tensor resulted from performing the `xor` logical operation
+  elementwise on the input tensors `A` and `B`.
+  
+  This operator supports **bidirectional Numpy-style broadcasting**; for more details
+  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
+
+#### Version
+
+This version of the operator has been available since version 7 of the default ONNX operator set.
+
+#### Inputs
+
+<dl>
+<dt><tt>A</tt> : T</dt>
+<dd>First input operand for the logical operator.</dd>
+<dt><tt>B</tt> : T</dt>
+<dd>Second input operand for the logical operator.</dd>
+</dl>
+
+#### Outputs
+
+<dl>
+<dt><tt>C</tt> : T1</dt>
+<dd>Result tensor.</dd>
+</dl>
+
+#### Type Constraints
+
+<dl>
+<dt><tt>T</tt> : tensor(bool)</dt>
+<dd>Constrains input to boolean tensor.</dd>
+<dt><tt>T1</tt> : tensor(bool)</dt>
+<dd>Constrains output to boolean tensor.</dd>
 </dl>
 
