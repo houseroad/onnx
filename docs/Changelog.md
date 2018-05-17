@@ -3186,8 +3186,8 @@ This version of the operator has been available since version 1 of the default O
   produces one output data (Tensor<T>) where the function `f(x) = x^exponent`,
   is applied to the data tensor elementwise.
   
-  This operator supports **bidirectional Numpy-style broadcasting**; for more details
-  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
+  This operator supports **multidirectional (i.e., Numpy-style) broadcasting**; for more details
+  please check [the doc](Broadcasting.md).
 
 #### Version
 
@@ -6287,9 +6287,9 @@ This version of the operator has been available since version 6 of the default O
   output data (Tensor<T>) where the function `f(x) = slope * x for x < 0`,
   `f(x) = x for x >= 0`., is applied to the data tensor elementwise.
   
-  This operator supports **unidirectional Numpy-style broadcasting**
-  (expand slope tensor to the first input's shape; for more details please check
-  [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
+  This operator supports **unidirectional broadcasting** (tensor slope should be
+  unidirectional broadcastable to input tensor X); for more details please check
+  [the doc](Broadcasting.md).
   
 
 #### Version
@@ -6634,10 +6634,10 @@ This version of the operator has been available since version 7 of the default O
 
 ### <a name="Add-7"></a>**Add-7**</a>
 
-  Performs element-wise binary addition (with limited broadcast support).
+  Performs element-wise binary addition (with Numpy-style broadcasting support).
   
-  This operator supports **bidirectional Numpy-style broadcasting**; for more details
-  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
+  This operator supports **multidirectional (i.e., Numpy-style) broadcasting**; for more details
+  please check [the doc](Broadcasting.md).
 
 #### Version
 
@@ -6671,8 +6671,8 @@ This version of the operator has been available since version 7 of the default O
   Returns the tensor resulted from performing the `and` logical operation
   elementwise on the input tensors `A` and `B`.
   
-  This operator supports **bidirectional Numpy-style broadcasting**; for more details
-  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
+  This operator supports **multidirectional (i.e., Numpy-style) broadcasting**; for more details
+  please check [the doc](Broadcasting.md).
 
 #### Version
 
@@ -6857,10 +6857,10 @@ This version of the operator has been available since version 7 of the default O
 
 ### <a name="Div-7"></a>**Div-7**</a>
 
-  Performs element-wise binary division (with limited broadcast support).
+  Performs element-wise binary division (with Numpy-style broadcasting support).
   
-  This operator supports **bidirectional Numpy-style broadcasting**; for more details
-  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
+  This operator supports **multidirectional (i.e., Numpy-style) broadcasting**; for more details
+  please check [the doc](Broadcasting.md).
 
 #### Version
 
@@ -6894,8 +6894,8 @@ This version of the operator has been available since version 7 of the default O
   Returns the tensor resulted from performing the `equal` logical operation
   elementwise on the input tensors `A` and `B`.
   
-  This operator supports **bidirectional Numpy-style broadcasting**; for more details
-  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
+  This operator supports **multidirectional (i.e., Numpy-style) broadcasting**; for more details
+  please check [the doc](Broadcasting.md).
 
 #### Version
 
@@ -6931,8 +6931,8 @@ This version of the operator has been available since version 7 of the default O
   Returns the tensor resulted from performing the `greater` logical operation
   elementwise on the input tensors `A` and `B`.
   
-  This operator supports **bidirectional Numpy-style broadcasting**; for more details
-  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
+  This operator supports **multidirectional (i.e., Numpy-style) broadcasting**; for more details
+  please check [the doc](Broadcasting.md).
 
 #### Version
 
@@ -6968,8 +6968,8 @@ This version of the operator has been available since version 7 of the default O
   Returns the tensor resulted from performing the `less` logical operation
   elementwise on the input tensors `A` and `B`.
   
-  This operator supports **bidirectional Numpy-style broadcasting**; for more details
-  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
+  This operator supports **multidirectional (i.e., Numpy-style) broadcasting**; for more details
+  please check [the doc](Broadcasting.md).
 
 #### Version
 
@@ -7002,10 +7002,10 @@ This version of the operator has been available since version 7 of the default O
 
 ### <a name="Mul-7"></a>**Mul-7**</a>
 
-  Performs element-wise binary multiplication (with limited broadcast support).
+  Performs element-wise binary multiplication (with Numpy-style broadcasting support).
   
-  This operator supports **bidirectional Numpy-style broadcasting**; for more details
-  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
+  This operator supports **multidirectional (i.e., Numpy-style) broadcasting**; for more details
+  please check [the doc](Broadcasting.md).
 
 #### Version
 
@@ -7082,8 +7082,8 @@ This version of the operator has been available since version 7 of the default O
   Returns the tensor resulted from performing the `or` logical operation
   elementwise on the input tensors `A` and `B`.
   
-  This operator supports **bidirectional Numpy-style broadcasting**; for more details
-  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
+  This operator supports **multidirectional (i.e., Numpy-style) broadcasting**; for more details
+  please check [the doc](Broadcasting.md).
 
 #### Version
 
@@ -7145,10 +7145,10 @@ This version of the operator has been available since version 7 of the default O
 
 ### <a name="Sub-7"></a>**Sub-7**</a>
 
-  Performs element-wise binary subtraction (with limited broadcast support).
+  Performs element-wise binary subtraction (with Numpy-style broadcasting support).
   
-  This operator supports **bidirectional Numpy-style broadcasting**; for more details
-  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
+  This operator supports **multidirectional (i.e., Numpy-style) broadcasting**; for more details
+  please check [the doc](Broadcasting.md).
 
 #### Version
 
@@ -7251,8 +7251,8 @@ This version of the operator has been available since version 7 of the default O
   Returns the tensor resulted from performing the `xor` logical operation
   elementwise on the input tensors `A` and `B`.
   
-  This operator supports **bidirectional Numpy-style broadcasting**; for more details
-  please check [here](https://github.com/onnx/onnx/blob/master/docs/Broadcast.md).
+  This operator supports **multidirectional (i.e., Numpy-style) broadcasting**; for more details
+  please check [the doc](Broadcasting.md).
 
 #### Version
 
