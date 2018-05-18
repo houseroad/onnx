@@ -233,20 +233,20 @@ class TestOptimizer(unittest.TestCase):
 
     def test_fuse_add_bias_into_conv_use_weight_shape(self):  # type: () -> None
         nodes = [helper.make_node("Conv", ["X", "Y"], ["Z"]),
-                 helper.make_node("Add", ["Z", "A"], ["B"], broadcast=1, axis=1)]
+                 helper.make_node("Add", ["Z", "A"], ["B"])]
         nodes.extend(self._make_fake_loop_op(
             [helper.make_node("Conv", ["_X", "_Y"], ["_Z"]),
-             helper.make_node("Add", ["_Z", "_A"], ["_B2"], broadcast=1, axis=1)],
+             helper.make_node("Add", ["_Z", "_A"], ["_B2"])],
             [(TensorProto.FLOAT, (1, 5, 3, 3), "X"),
              (TensorProto.FLOAT, (16, 5, 3, 3), "Y"),
-             (TensorProto.FLOAT, (16,), "A")],
+             (TensorProto.FLOAT, (16, 1, 1), "A")],
             [(TensorProto.FLOAT, (1, 16, 3, 3), "B2")]))
         graph = helper.make_graph(
             nodes,
             "test",
             [helper.make_tensor_value_info("X", TensorProto.FLOAT, (1, 5, 3, 3)),
              helper.make_tensor_value_info("Y", TensorProto.FLOAT, (16, 5, 3, 3)),
-             helper.make_tensor_value_info("A", TensorProto.FLOAT, (16,))],
+             helper.make_tensor_value_info("A", TensorProto.FLOAT, (16, 1, 1))],
             [helper.make_tensor_value_info("B", TensorProto.FLOAT, (1, 16, 3, 3))],
         )
         optimized_model = self._optimized(graph, ["fuse_add_bias_into_conv"])
@@ -263,7 +263,7 @@ class TestOptimizer(unittest.TestCase):
 
     def test_fuse_add_bias_into_conv_use_weight_shape_with_tile(self):  # type: () -> None
         conv = helper.make_node("Conv", ["X", "Y"], ["Z"])
-        add = helper.make_node("Add", ["Z", "A"], ["B"], broadcast=1, axis=1)
+        add = helper.make_node("Add", ["Z", "A"], ["B"])
         graph = helper.make_graph(
             [conv, add],
             "test",
@@ -286,14 +286,14 @@ class TestOptimizer(unittest.TestCase):
     def test_fuse_add_bias_into_conv_use_conv_shape(self):  # type: () -> None
         sub = helper.make_node("Sub", ["M", "N"], ["Y"])
         conv = helper.make_node("Conv", ["X", "Y"], ["Z"])
-        add = helper.make_node("Add", ["Z", "A"], ["B"], broadcast=1, axis=1)
+        add = helper.make_node("Add", ["Z", "A"], ["B"])
         graph = helper.make_graph(
             [sub, conv, add],
             "test",
             [helper.make_tensor_value_info("X", TensorProto.FLOAT, (1, 5, 3, 3)),
              helper.make_tensor_value_info("M", TensorProto.FLOAT, (16, 5, 3, 3)),
              helper.make_tensor_value_info("N", TensorProto.FLOAT, (16, 5, 3, 3)),
-             helper.make_tensor_value_info("A", TensorProto.FLOAT, (16,))],
+             helper.make_tensor_value_info("A", TensorProto.FLOAT, (16, 1, 1))],
             [helper.make_tensor_value_info("B", TensorProto.FLOAT, (1, 16, 3, 3))],
             value_info=[
                 helper.make_tensor_value_info("Z", TensorProto.FLOAT, (1, 16, 3, 3))
@@ -316,7 +316,7 @@ class TestOptimizer(unittest.TestCase):
                                         data_type=TensorProto.FLOAT,
                                         dims=(16,),
                                         vals=np.random.randn(16).astype(np.float32).tolist()))
-        add = helper.make_node("Add", ["Z", "A"], ["B"], broadcast=1, axis=1)
+        add = helper.make_node("Add", ["Z", "A"], ["B"])
         graph = helper.make_graph(
             [conv, constant, add],
             "test",
@@ -324,7 +324,7 @@ class TestOptimizer(unittest.TestCase):
              helper.make_tensor_value_info("Y", TensorProto.FLOAT, (16, 5, 3, 3))],
             [helper.make_tensor_value_info("B", TensorProto.FLOAT, (1, 16, 3, 3))],
             value_info=[
-                helper.make_tensor_value_info("A", TensorProto.FLOAT, (16,)),
+                helper.make_tensor_value_info("A", TensorProto.FLOAT, (16, 1, 1)),
             ]
         )
         optimized_model = self._optimized(graph, ["fuse_add_bias_into_conv"])
@@ -338,7 +338,7 @@ class TestOptimizer(unittest.TestCase):
 
     def test_fuse_add_bias_into_conv_squeeze_1d_bias_no_fuse(self):  # type: () -> None
         conv = helper.make_node("Conv", ["X", "Y"], ["Z"])
-        add = helper.make_node("Add", ["Z", "A"], ["B"], broadcast=1, axis=3)
+        add = helper.make_node("Add", ["Z", "A"], ["B"])
         graph = helper.make_graph(
             [conv, add],
             "test",
@@ -358,7 +358,7 @@ class TestOptimizer(unittest.TestCase):
 
     def test_fuse_add_bias_into_conv_squeeze_3d_bias_no_fuse(self):  # type: () -> None
         conv = helper.make_node("Conv", ["X", "Y"], ["Z"])
-        add = helper.make_node("Add", ["Z", "A"], ["B"], broadcast=1, axis=1)
+        add = helper.make_node("Add", ["Z", "A"], ["B"])
         graph = helper.make_graph(
             [conv, add],
             "test",
