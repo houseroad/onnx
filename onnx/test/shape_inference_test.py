@@ -602,24 +602,6 @@ class TestShapeInference(unittest.TestCase):
             [])
         self._assert_inferred(graph, [make_tensor_value_info('out', TensorProto.FLOAT, (7, 11))])
 
-    def test_gemm_shape_from_C(self):
-        graph = self._make_graph(
-            [('x', TensorProto.FLOAT, None),
-             ('y', TensorProto.FLOAT, (11, 5)),
-             ('z', TensorProto.FLOAT, (7, None))],
-            [make_node('Gemm', ['x', 'y', 'z'], ['out'], transA=1, transB=1)],
-            [])
-        self._assert_inferred(graph, [make_tensor_value_info('out', TensorProto.FLOAT, (7, None))])
-
-    def test_gemm_shape_from_C_broadcast_false(self):
-        graph = self._make_graph(
-            [('x', TensorProto.FLOAT, None),
-             ('y', TensorProto.FLOAT, (11, 5)),
-             ('z', TensorProto.FLOAT, (7, None))],
-            [make_node('Gemm', ['x', 'y', 'z'], ['out'], transA=1, transB=1)],
-            [])
-        self._assert_inferred(graph, [make_tensor_value_info('out', TensorProto.FLOAT, (7, None))])
-
     def test_reduce_op_shape_2_axis(self):
         graph = self._make_graph(
             [('x', TensorProto.FLOAT, (24, 4, 11))],

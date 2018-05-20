@@ -669,4 +669,16 @@ class OpSchemaRegistry final {
 // Helper function
 size_t ReplaceAll(std::string& s, const char* from, const char* to);
 
+inline std::string GenerateBroadcastingDocMul() {
+  return "This operator supports **multidirectional (i.e., Numpy-style) broadcasting**;"
+         " for more details please check [the doc](Broadcasting.md).";
+}
+
+inline std::string GenerateBroadcastingDocUni(const char* from, const char* to) {
+  std::string ret = "This operator supports **multidirectional broadcasting** (";
+  ret = ret + from + " should be unidirectional broadcastable to " + to + ");"
+        " for more details please check [the doc](Broadcasting.md).";
+  return ret;
+}
+
 } // namespace ONNX_NAMESPACE
