@@ -29,6 +29,13 @@ elementwise on the input tensors `A` and `B` (with Numpy-style broadcasting supp
         schema.Input(1, "B", "Second input operand for the logical operator.", "T");
 		schema.Output(0, "C", "Result tensor.", "T1");
         schema.SinceVersion(7);
+        schema.TypeAndShapeInferenceFunction([](InferenceContext& ctx) {
+            propagateElemTypeFromInputToOutput(ctx, 0, 0);
+            bidirectionalBroadcastShapeInference(
+              ctx.getInputType(0)->tensor_type().shape(),
+              ctx.getInputType(1)->tensor_type().shape(),
+              *ctx.getOutputType(0)->mutable_tensor_type()->mutable_shape());
+          });
     };
 }
 

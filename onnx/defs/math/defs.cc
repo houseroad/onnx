@@ -33,6 +33,13 @@ Performs element-wise binary {name} (with Numpy-style broadcasting support).
         "T",
         OpSchema::high_precision_numeric_types(),
         "Constrain input and output types to high-precision numeric tensors.");
+    schema.TypeAndShapeInferenceFunction([](InferenceContext& ctx) {
+        propagateElemTypeFromInputToOutput(ctx, 0, 0);
+        bidirectionalBroadcastShapeInference(
+          ctx.getInputType(0)->tensor_type().shape(),
+          ctx.getInputType(1)->tensor_type().shape(),
+          *ctx.getOutputType(0)->mutable_tensor_type()->mutable_shape());
+      });
   };
 }
 
