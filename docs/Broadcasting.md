@@ -51,8 +51,7 @@ each dimensions is either a common length or B's length is 1.
 - Tensor B has too few dimensions, and B can have its shapes prepended
 with a dimension of length 1 to satisfy property 2.
 
-When unidirectional broadcasting happens, the output's shape is the same as the larger
-shape of two input tensors.
+When unidirectional broadcasting happens, the output's shape is same as the shape of A.
 
 In the following examples, tensor B is unidirectional broadcastable to tensor A:
 
