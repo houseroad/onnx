@@ -10,7 +10,7 @@ respecitively in the following sections.
 ## Multidirectional Broadcasting
 
 In ONNX, a set of tensors are multidirectional broadcastable to the same shape
-if one of the followig is true:
+if one of the following is true:
 - The tensors all have exactly the same shape.
 - The tensors all have the same number of dimensions and the length of
 each dimensions is either a common length or 1.
@@ -44,7 +44,7 @@ Multidirectional broadcasting is supported by the following operators in ONNX:
 ## Unidirectional Broadcasting
 
 In ONNX, tensor B is unidirectional broadcastable to tensor A
-if one of the followig is true:
+if one of the following is true:
 - Tensor A and B both have exactly the same shape.
 - Tensor A and B all have the same number of dimensions and the length of
 each dimensions is either a common length or B's length is 1.
